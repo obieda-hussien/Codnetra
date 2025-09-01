@@ -11,7 +11,10 @@ import {
   faBars,
   faTimes,
   faMoon,
-  faSun
+  faSun,
+  faEnvelope,
+  faPhone,
+  faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { 
   faGithub, 
@@ -33,6 +36,9 @@ library.add(
   faTimes,
   faMoon,
   faSun,
+  faEnvelope,
+  faPhone,
+  faMapMarkerAlt,
   faGithub, 
   faLinkedin, 
   faTwitter

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "../lib/fonts";
+import { ThemeProvider } from 'next-themes';
 import "./globals.css";
 
 // Import FontAwesome icons configuration
@@ -21,6 +22,10 @@ export const metadata: Metadata = {
     title: "Codenetra - حلول برمجية مبتكرة",
     description: "شركة كودنيترا المتخصصة في تطوير التطبيقات المبتكرة والحلول البرمجية الذكية",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -29,11 +34,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

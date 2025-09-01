@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { NAVIGATION_LINKS } from '../../constants';
 import Button from '../ui/Button';
+import ThemeSwitch from '../ui/ThemeSwitch';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,28 +45,32 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* Theme Switch and CTA Button */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="hidden md:block"
+            className="hidden md:flex items-center space-x-4 space-x-reverse"
           >
+            <ThemeSwitch />
             <Button variant="primary" size="sm">
               ابدأ مشروعك
             </Button>
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-          >
-            <FontAwesomeIcon 
-              icon={isMenuOpen ? faTimes : faBars} 
-              className="w-6 h-6" 
-            />
-          </button>
+          <div className="md:hidden flex items-center space-x-2 space-x-reverse">
+            <ThemeSwitch />
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <FontAwesomeIcon 
+                icon={isMenuOpen ? faTimes : faBars} 
+                className="w-6 h-6" 
+              />
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
