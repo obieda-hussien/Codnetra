@@ -88,6 +88,7 @@ const Header: React.FC = () => {
             <button
               onClick={toggleMenu}
               className="p-2 rounded-lg text-gray-300 hover:bg-gray-700 transition-colors"
+              aria-label={isMenuOpen ? "إغلاق القائمة" : "فتح القائمة"}
             >
               <FontAwesomeIcon 
                 icon={isMenuOpen ? faTimes : faBars} 

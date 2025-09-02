@@ -103,6 +103,7 @@ const DeveloperCard: React.FC<{ developer: typeof DEVELOPERS[0]; index: number }
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors"
+              aria-label={`GitHub ${developer.name}`}
             >
               <FontAwesomeIcon icon={faGithub} className="text-white" />
             </motion.a>
@@ -115,6 +116,7 @@ const DeveloperCard: React.FC<{ developer: typeof DEVELOPERS[0]; index: number }
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center transition-colors"
+              aria-label={`LinkedIn ${developer.name}`}
             >
               <FontAwesomeIcon icon={faLinkedin} className="text-white" />
             </motion.a>
@@ -127,6 +129,7 @@ const DeveloperCard: React.FC<{ developer: typeof DEVELOPERS[0]; index: number }
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="w-10 h-10 bg-blue-400 hover:bg-blue-300 rounded-full flex items-center justify-center transition-colors"
+              aria-label={`Twitter ${developer.name}`}
             >
               <FontAwesomeIcon icon={faTwitter} className="text-white" />
             </motion.a>
@@ -139,6 +142,7 @@ const DeveloperCard: React.FC<{ developer: typeof DEVELOPERS[0]; index: number }
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="w-10 h-10 bg-accent hover:bg-accent-light rounded-full flex items-center justify-center transition-colors"
+              aria-label={`موقع ${developer.name} الشخصي`}
             >
               <FontAwesomeIcon icon={faExternalLinkAlt} className="text-white" />
             </motion.a>
