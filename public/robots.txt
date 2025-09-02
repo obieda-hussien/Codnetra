@@ -1,0 +1,133 @@
+# Robots.txt for Codenetra - Optimized for Global SEO
+User-agent: *
+Allow: /
+
+# Priority crawling - Main sections
+Allow: /services
+Allow: /portfolio
+Allow: /about
+Allow: /contact
+Allow: /blog
+
+# Allow access to important assets
+Allow: /images/
+Allow: /icons/
+Allow: /*.css$
+Allow: /*.js$
+
+# Block admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /node_modules/
+Disallow: /src/
+
+# Block sensitive files
+Disallow: /*.json$
+Disallow: /*.env$
+Disallow: /*.config.js$
+Disallow: /*.config.ts$
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+
+# Block development and build files
+Disallow: /out/
+Disallow: /.next/
+Disallow: /build/
+Disallow: /dist/
+
+# Sitemap locations
+Sitemap: https://codenetra.com/sitemap.xml
+Sitemap: https://codenetra.com/sitemap-blog.xml
+
+# Crawl delay for respectful crawling (in seconds)
+Crawl-delay: 1
+
+# Specific bot instructions for better optimization
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+Request-rate: 1/5s
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Request-rate: 1/10s
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Social media bots
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Block problematic bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Archive and backup bots
+User-agent: ia_archiver
+Allow: /
+
+User-agent: Wayback
+Allow: /
+
+# Mobile-specific instructions
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 0
+
+# Image indexing
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /icons/
+Allow: /screenshots/
+Disallow: /private/
+
+# Video indexing (if applicable)
+User-agent: Googlebot-Video
+Allow: /videos/
+Disallow: /private/
+
+# News indexing (for blog content)
+User-agent: Googlebot-News
+Allow: /blog/
+Allow: /news/
