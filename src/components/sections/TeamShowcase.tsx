@@ -22,27 +22,27 @@ interface TeamMember {
 const TeamShowcase: React.FC = () => {
   const teamMembers: TeamMember[] = [
     {
-      name: "أحمد محمد",
-      role: "مطور Full-Stack",
+      name: "عبيدة حسين",
+      role: "Co-Founder & Lead Developer",
       description: "خبير في تطوير التطبيقات الحديثة باستخدام React و Node.js مع شغف بالتقنيات الناشئة",
       specialties: ["React", "Node.js", "TypeScript", "GraphQL"],
       social: {
-        github: "https://github.com",
+        github: "https://github.com/obieda-hussien",
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com"
       },
       avatar: "👨‍💻"
     },
     {
-      name: "سارة علي",
-      role: "مصممة UI/UX",
-      description: "متخصصة في تصميم تجارب المستخدم المتميزة والواجهات التفاعلية المبتكرة",
-      specialties: ["UI Design", "UX Research", "Figma", "Prototyping"],
+      name: "شريك التطوير",
+      role: "Co-Founder & Technical Architect",
+      description: "متخصص في البنية التقنية وتصميم تجارب المستخدم المتميزة والواجهات التفاعلية المبتكرة",
+      specialties: ["UI Design", "UX Research", "System Design", "DevOps"],
       social: {
         github: "https://github.com",
         linkedin: "https://linkedin.com"
       },
-      avatar: "👩‍🎨"
+      avatar: "👨‍🎨"
     }
   ];
 
@@ -73,33 +73,62 @@ const TeamShowcase: React.FC = () => {
           variants={advancedVariants.staggerParent}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
         >
-          {teamMembers.map((member) => (
+          {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
               variants={advancedVariants.staggerChild}
+              custom={index}
             >
-              <FloatingCard className="h-full text-center group relative overflow-hidden">
-                {/* Background gradient overlay on hover */}
+              <FloatingCard 
+                className="h-full text-center group relative overflow-hidden"
+                tiltEffect={true}
+                tiltMaxAngle={12}
+                glowing={false}
+              >
+                {/* Enhanced background gradient overlay on hover */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-gradient-start/10 via-gradient-mid/10 to-gradient-end/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-accent-500/10 to-primary-600/10 opacity-0 rounded-lg"
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
                   style={{ zIndex: 1 }}
                 />
 
                 <div className="relative z-10">
-                  {/* Avatar */}
+                  {/* Avatar with 3D hover effect */}
                   <motion.div
-                    className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-gradient-start to-gradient-end rounded-full flex items-center justify-center text-4xl transform group-hover:scale-110 transition-transform duration-300"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.8 }}
+                    className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-primary-600 to-accent-600 rounded-full flex items-center justify-center text-4xl relative overflow-hidden"
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotateY: 180,
+                      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.3)"
+                    }}
+                    transition={{ 
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 300
+                    }}
                   >
                     {member.avatar}
+                    {/* Glowing ring effect */}
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2 border-primary-400 opacity-0"
+                      whileHover={{ 
+                        opacity: 1,
+                        scale: 1.2,
+                        boxShadow: "0 0 20px rgba(37, 99, 235, 0.5)"
+                      }}
+                      transition={{ duration: 0.3 }}
+                    />
                   </motion.div>
 
-                  {/* Name and Role */}
-                  <h3 className="text-2xl font-bold text-text-primary mb-2 group-hover:text-text-accent transition-colors">
+                  {/* Name and Role with enhanced hover */}
+                  <motion.h3 
+                    className="text-2xl font-bold text-text-primary mb-2 transition-colors"
+                    whileHover={{ color: '#2563eb' }}
+                  >
                     {member.name}
-                  </h3>
-                  <p className="text-gradient-accent font-semibold mb-4">
+                  </motion.h3>
+                  <p className="text-primary-500 font-semibold mb-4">
                     {member.role}
                   </p>
 
@@ -108,30 +137,39 @@ const TeamShowcase: React.FC = () => {
                     {member.description}
                   </p>
 
-                  {/* Specialties */}
+                  {/* Specialties with stagger animation */}
                   <div className="flex flex-wrap justify-center gap-2 mb-6">
                     {member.specialties.map((specialty, specialtyIndex) => (
                       <motion.span
                         key={specialty}
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.1 * specialtyIndex }}
-                        className="px-3 py-1 bg-gradient-to-r from-gradient-accent/20 to-gradient-end/20 text-text-accent text-xs rounded-full border border-gradient-accent/30"
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        transition={{ 
+                          delay: 0.1 * specialtyIndex,
+                          type: "spring",
+                          stiffness: 300
+                        }}
+                        className="px-3 py-1 bg-gradient-to-r from-primary-500/20 to-accent-500/20 text-primary-400 text-xs rounded-full border border-primary-500/30 hover:border-primary-500/60 transition-all duration-300"
                       >
                         {specialty}
                       </motion.span>
                     ))}
                   </div>
 
-                  {/* Social Links */}
+                  {/* Social Links with enhanced animations */}
                   <div className="flex justify-center space-x-4 space-x-reverse">
                     {member.social.github && (
                       <motion.a
                         href={member.social.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-gradient-to-br from-gradient-start to-gradient-mid rounded-full flex items-center justify-center text-text-primary hover:scale-110 transition-transform duration-300 hover:shadow-lg hover:shadow-gradient-accent/25"
-                        whileHover={{ y: -3 }}
+                        className="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center text-white transition-all duration-300"
+                        whileHover={{ 
+                          y: -5, 
+                          scale: 1.1,
+                          boxShadow: "0 10px 25px rgba(37, 99, 235, 0.4)"
+                        }}
                         whileTap={{ scale: 0.95 }}
                       >
                         <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
@@ -143,8 +181,12 @@ const TeamShowcase: React.FC = () => {
                         href={member.social.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-gradient-to-br from-gradient-mid to-gradient-end rounded-full flex items-center justify-center text-text-primary hover:scale-110 transition-transform duration-300 hover:shadow-lg hover:shadow-gradient-accent/25"
-                        whileHover={{ y: -3 }}
+                        className="w-10 h-10 bg-gradient-to-br from-accent-600 to-accent-700 rounded-full flex items-center justify-center text-white transition-all duration-300"
+                        whileHover={{ 
+                          y: -5, 
+                          scale: 1.1,
+                          boxShadow: "0 10px 25px rgba(16, 185, 129, 0.4)"
+                        }}
                         whileTap={{ scale: 0.95 }}
                       >
                         <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
@@ -156,8 +198,12 @@ const TeamShowcase: React.FC = () => {
                         href={member.social.twitter}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-gradient-to-br from-gradient-end to-gradient-accent rounded-full flex items-center justify-center text-text-primary hover:scale-110 transition-transform duration-300 hover:shadow-lg hover:shadow-gradient-accent/25"
-                        whileHover={{ y: -3 }}
+                        className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white transition-all duration-300"
+                        whileHover={{ 
+                          y: -5, 
+                          scale: 1.1,
+                          boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)"
+                        }}
                         whileTap={{ scale: 0.95 }}
                       >
                         <FontAwesomeIcon icon={faTwitter} className="w-5 h-5" />
@@ -178,7 +224,7 @@ const TeamShowcase: React.FC = () => {
           variants={advancedVariants.springIn}
           className="text-center mt-16"
         >
-          <FloatingCard className="max-w-2xl mx-auto">
+          <FloatingCard className="max-w-2xl mx-auto" tiltEffect={true} tiltMaxAngle={8}>
             <h3 className="text-2xl font-bold text-text-primary mb-4">
               هل تريد الانضمام إلى فريقنا؟
             </h3>
@@ -189,7 +235,7 @@ const TeamShowcase: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="inline-block px-8 py-3 bg-gradient-to-r from-gradient-start to-gradient-end text-text-primary font-semibold rounded-lg hover:shadow-lg hover:shadow-gradient-accent/25 transition-all duration-300 cursor-pointer">
+              <span className="inline-block px-8 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 cursor-pointer">
                 أرسل سيرتك الذاتية
               </span>
             </motion.div>

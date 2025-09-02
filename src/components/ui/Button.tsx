@@ -15,6 +15,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
+  scrollTo?: string; // New scrollTo functionality
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -27,14 +28,30 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button',
   className,
+  scrollTo,
 }) => {
+  const handleClick = () => {
+    if (scrollTo) {
+      const targetElement = document.getElementById(scrollTo);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    if (onClick) {
+      onClick();
+    }
+  };
+
   const baseClasses = 'inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-primary text-white hover:bg-primary-dark focus:ring-primary',
-    secondary: 'border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white focus:ring-primary',
-    ghost: 'text-primary bg-transparent hover:bg-primary/10 focus:ring-primary',
-    glow: 'bg-primary text-white hover:bg-primary-dark focus:ring-primary animate-pulse-glow',
+    primary: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500',
+    secondary: 'border-2 border-primary-600 text-primary-600 bg-transparent hover:bg-primary-600 hover:text-white focus:ring-primary-500',
+    ghost: 'text-primary-600 bg-transparent hover:bg-primary-600/10 focus:ring-primary-500',
+    glow: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 animate-pulse-glow',
   };
   
   const sizeClasses = {
@@ -58,7 +75,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <motion.button
       type={type}
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
       className={buttonClasses}
       whileHover={{ scale: disabled ? 1 : 1.05 }}

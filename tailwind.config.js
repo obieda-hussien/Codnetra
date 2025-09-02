@@ -1,46 +1,106 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  // No darkMode: 'class' anymore - dark mode is the default
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
+      // ===== أبقِ على الخطوط والألوان الأساسية كما هي =====
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
+      },
       colors: {
-        // Primary background colors
-        background: {
-          DEFAULT: '#0a0a0f', // Deep cosmic black
-          surface: '#16213e', // Night blue for secondary surfaces
+        // Primary background colors (keeping existing)
+        primary: {
+          50: '#eff6ff',
+          100: '#dbeafe', 
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
         },
-        // Gradient colors for backgrounds and accent elements
-        gradient: {
-          start: '#667eea', // Purple
-          mid: '#764ba2',   // Violet
-          end: '#00d4ff',   // Cyan
-          accent: '#00ff88', // Neon green
+        accent: {
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0', 
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
         },
-        // Text colors for readability
-        text: {
-          primary: '#e5e7eb',   // Off-white (easy on eyes)
-          secondary: '#94a3b8', // Gray for menus and subtitles
-          accent: '#00ff88',    // Neon green for important text
+        dark: { // ألوان الوضع الليلي
+          background: '#0f172a',
+          surface: '#1e293b',
+          text: '#f1f5f9',
         },
-        // Card colors with transparency to show animated background
+        // ===== أضف ألوان الـ Card والـ Gradient الجديدة =====
         card: {
-          background: 'rgba(22, 33, 62, 0.7)', // Semi-transparent glass
-          border: 'rgba(102, 126, 234, 0.3)', // Subtle glowing borders
+          primary: 'rgba(30, 41, 59, 0.7)', // تعديل ليتناسب مع surface الجديد
+          border: 'rgba(59, 130, 246, 0.3)', // استخدام لون primary كحدود
+        },
+        gradient: { // ألوان متدرجة جديدة لاستخدامها في الخلفية
+          start: '#2563eb', // primary
+          end: '#10b981',   // accent
+        },
+        // Keep existing for compatibility
+        background: {
+          DEFAULT: '#0f172a',
+          surface: '#1e293b',
+        },
+        text: {
+          primary: '#f1f5f9',
+          secondary: '#94a3b8',
+          accent: '#00ff88',
         },
       },
-      // New animation effects
+      // ===== أضف الـ backgroundImage والـ Animations الجديدة =====
+      backgroundImage: {
+        'animated-gradient': 'linear-gradient(-45deg, #2563eb, #1e3a8a, #059669, #10b981)',
+      },
       animation: {
-        'gradient-shift': 'gradientShift 10s ease infinite', // Slower, smoother movement
+        'fade-in': 'fadeIn 0.5s ease-in-out forwards',
+        'slide-up': 'slideUp 0.6s ease-out forwards',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate',
+        'float': 'float 4s ease-in-out infinite',
+        // --- جديد ---
+        'gradient-shift': 'gradientShift 15s ease infinite', // أبطأ وأكثر سلاسة
         'pulse-neon': 'pulseNeon 1.5s ease-in-out infinite alternate',
         'float-slow': 'floatSlow 6s ease-in-out infinite',
       },
       keyframes: {
+        // أبقِ على الـ Keyframes القديمة
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseGlow: {
+          '0%': { boxShadow: '0 0 4px #10b981, 0 0 8px #10b981' },
+          '100%': { boxShadow: '0 0 10px #10b981, 0 0 20px #10b981, 0 0 30px #10b981' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        // --- جديد ---
         gradientShift: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
-        pulseNeon: { // More vibrant glow effect
+        pulseNeon: {
           '0%': { boxShadow: '0 0 4px #00ff88, 0 0 8px #00ff88' },
           '100%': { boxShadow: '0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88' },
         },
@@ -51,5 +111,8 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
 }

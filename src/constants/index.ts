@@ -1,6 +1,16 @@
-import { faCode, faLaptopCode, faMobile, faRocket } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUsers, faCode, faLaptopCode, faNewspaper, faEnvelope, faMobile, faRocket } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
+export const navigationItems = [
+  { label: 'الرئيسية', href: '#hero', sectionId: 'hero', icon: faHome },
+  { label: 'خدماتنا', href: '#services', sectionId: 'services', icon: faCode },
+  { label: 'أعمالنا', href: '#portfolio', sectionId: 'portfolio', icon: faLaptopCode },
+  { label: 'فريقنا', href: '#team', sectionId: 'team', icon: faUsers },
+  { label: 'المدونة', href: '#blog', sectionId: 'blog', icon: faNewspaper },
+  { label: 'تواصل معنا', href: '#contact', sectionId: 'contact', icon: faEnvelope },
+];
+
+// Keep existing for backward compatibility
 export const NAVIGATION_LINKS = [
   { name: 'الرئيسية', href: 'hero' },
   { name: 'خدماتنا', href: 'services' },
