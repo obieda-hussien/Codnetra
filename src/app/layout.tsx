@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "../lib/fonts";
-import { ThemeProvider } from 'next-themes';
 import "./globals.css";
 
 // Import FontAwesome icons configuration
@@ -34,13 +33,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning className="dark">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-dark-background text-dark-text`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

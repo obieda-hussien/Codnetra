@@ -6,7 +6,7 @@ import FadeIn from '../animations/FadeIn';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-accent-dark to-dark-background animate-gradient-x"></div>
       
