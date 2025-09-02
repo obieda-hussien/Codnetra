@@ -1,45 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  /* Custom Colors */
-  --color-primary: #2563eb;
-  --color-primary-light: #3b82f6;
-  --color-primary-dark: #1e3a8a;
-  --color-accent: #10b981;
-  --color-accent-light: #34d399;
-  --color-accent-dark: #059669;
-  --color-dark-background: #0f172a;
-  --color-dark-surface: #1e293b;
-  --color-dark-text: #f1f5f9;
-  
-  /* Base Colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Dark Cosmic Theme - Always Dark */
+  --background: #0a0a0f;
+  --foreground: #e5e7eb;
+  --surface: #16213e;
   
   /* Fonts */
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
-  
-  /* Custom Animations */
-  --animate-fade-in: fadeIn 0.5s ease-in-out forwards;
-  --animate-slide-up: slideUp 0.6s ease-out forwards;
-  --animate-pulse-glow: pulseGlow 2s ease-in-out infinite alternate;
-  --animate-float: float 4s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--color-dark-background);
-    --foreground: var(--color-dark-text);
-  }
-}
-
-/* Custom Keyframes */
+/* Custom Keyframes for Dark Cosmic Theme */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -51,8 +23,8 @@
 }
 
 @keyframes pulseGlow {
-  0% { box-shadow: 0 0 5px #10b981; }
-  100% { box-shadow: 0 0 20px #10b981, 0 0 30px #10b981; }
+  0% { box-shadow: 0 0 5px #00ff88; }
+  100% { box-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88; }
 }
 
 @keyframes float {
@@ -65,4 +37,6 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   scroll-behavior: smooth;
+  /* Ensure dark cosmic theme throughout */
+  min-height: 100vh;
 }

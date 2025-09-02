@@ -15,11 +15,21 @@ export default function Home() {
       <ScrollProgressBar />
       <Header />
       <main>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <Contact />
-        <Blog />
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="services">
+          <Services />
+        </section>
+        <section id="portfolio">
+          <Portfolio />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+        <section id="blog">
+          <Blog />
+        </section>
       </main>
       <Footer />
     </div>

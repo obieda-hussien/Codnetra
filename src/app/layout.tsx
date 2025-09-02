@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "../lib/fonts";
-import { ThemeProvider } from 'next-themes';
+import AnimatedBackground from "../components/layout/AnimatedBackground";
 import "./globals.css";
 
 // Import FontAwesome icons configuration
@@ -38,9 +38,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+        <AnimatedBackground />
+        {children}
       </body>
     </html>
   );
