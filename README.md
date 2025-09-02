@@ -124,4 +124,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🤝 Support
 
 For support, email info@codenetra.com or create an issue in this repository.
-GitHub Pages is configured correctly. The website should show the Codenetra landing page.
