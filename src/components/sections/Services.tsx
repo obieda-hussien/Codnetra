@@ -7,13 +7,13 @@ import FadeIn from '../animations/FadeIn';
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-gray-50 dark:bg-dark-surface">
+    <section id="services" className="py-20 bg-dark-surface">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             خدماتنا
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             نقدم مجموعة شاملة من الخدمات التقنية المبتكرة التي تساعد عملائنا على تحقيق أهدافهم الرقمية
           </p>
         </FadeIn>
@@ -39,10 +39,10 @@ const Services: React.FC = () => {
                       className="w-8 h-8 text-primary" 
                     />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-bold text-white mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  <p className="text-gray-300 mb-6">
                     {service.description}
                   </p>
                 </div>
@@ -51,7 +51,7 @@ const Services: React.FC = () => {
                   {service.features.map((feature, featureIndex) => (
                     <div 
                       key={featureIndex}
-                      className="flex items-center justify-center text-sm text-gray-500 dark:text-gray-400"
+                      className="flex items-center justify-center text-sm text-gray-400"
                     >
                       <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
                       {feature}
@@ -65,7 +65,7 @@ const Services: React.FC = () => {
 
         {/* CTA Section */}
         <FadeIn direction="up" delay={0.8} className="text-center mt-16">
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+          <p className="text-lg text-gray-300 mb-8">
             هل تحتاج إلى خدمة مخصصة؟ نحن هنا لمساعدتك
           </p>
           <motion.button

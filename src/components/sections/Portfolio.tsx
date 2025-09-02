@@ -64,13 +64,13 @@ const Portfolio: React.FC = () => {
     : PORTFOLIO_ITEMS.filter(item => item.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 bg-white dark:bg-dark-background">
+    <section id="portfolio" className="py-20 bg-dark-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             أعمالنا
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             مجموعة مختارة من أفضل مشاريعنا التي نفذناها لعملائنا في مختلف المجالات
           </p>
         </FadeIn>
@@ -85,7 +85,7 @@ const Portfolio: React.FC = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
                   activeFilter === filter.id
                     ? 'bg-primary text-white shadow-lg'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -116,16 +116,16 @@ const Portfolio: React.FC = () => {
               >
                 <Card hover className="overflow-hidden">
                   <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="text-gray-500 dark:text-gray-400 text-sm">
+                    <div className="text-gray-400 text-sm">
                       صورة المشروع
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-bold text-white mb-2">
                     {item.title}
                   </h3>
                   
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-300 mb-4">
                     {item.description}
                   </p>
                   
@@ -133,7 +133,7 @@ const Portfolio: React.FC = () => {
                     {item.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full"
+                        className="px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full"
                       >
                         {tech}
                       </span>

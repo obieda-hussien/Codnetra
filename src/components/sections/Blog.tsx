@@ -39,13 +39,13 @@ const BLOG_POSTS = [
 
 const Blog: React.FC = () => {
   return (
-    <section id="blog" className="py-20 bg-white dark:bg-dark-background">
+    <section id="blog" className="py-20 bg-dark-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             المدونة
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             أحدث المقالات والنصائح في عالم التقنية وتطوير البرمجيات
           </p>
         </FadeIn>
@@ -65,7 +65,7 @@ const Blog: React.FC = () => {
             >
               <Card hover className="h-full overflow-hidden">
                 <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-6 flex items-center justify-center">
-                  <div className="text-gray-500 dark:text-gray-400 text-sm">
+                  <div className="text-gray-400 text-sm">
                     صورة المقال
                   </div>
                 </div>
@@ -76,21 +76,21 @@ const Blog: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">
+                <h3 className="text-xl font-bold text-white mb-3 line-clamp-2">
                   {post.title}
                 </h3>
 
-                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                <p className="text-gray-300 mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
                   <span>{post.author}</span>
                   <span>{post.readTime}</span>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="text-sm text-gray-400">
                     {post.date}
                   </span>
                   <motion.button

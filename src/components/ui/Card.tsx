@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({
   
   const styleClasses = glass 
     ? 'bg-white/10 backdrop-blur-sm border border-white/20' 
-    : 'bg-white dark:bg-dark-surface border border-gray-200 dark:border-gray-700';
+    : 'bg-dark-surface border border-gray-700';
     
   const hoverClasses = hover 
     ? 'hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1' 
