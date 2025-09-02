@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f172a;
+  --foreground: #f1f5f9;
 }
 
 @theme inline {
   /* Custom Colors */
-  --color-primary: #2563eb;
-  --color-primary-light: #3b82f6;
-  --color-primary-dark: #1e3a8a;
+  --color-primary: #3b82f6;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #1e40af;
   --color-accent: #10b981;
   --color-accent-light: #34d399;
   --color-accent-dark: #059669;
@@ -32,14 +32,66 @@
   --animate-float: float 4s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--color-dark-background);
-    --foreground: var(--color-dark-text);
-  }
+/* Global animated background */
+.animated-gradient {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #1e293b);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* Magnetic button effect */
+.btn-magnetic {
+  transition: transform 0.2s ease;
+  cursor: none;
+}
+
+.btn-magnetic:hover {
+  transform: translate(var(--mouse-x, 0), var(--mouse-y, 0));
+}
+
+/* Section reveal animations */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient text animation */
+.gradient-text {
+  background: linear-gradient(-45deg, #10b981, #3b82f6, #8b5cf6, #10b981);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 4s ease infinite;
 }
 
 /* Custom Keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -65,4 +117,21 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   scroll-behavior: smooth;
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
