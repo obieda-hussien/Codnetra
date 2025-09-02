@@ -124,19 +124,22 @@ export function handleNetworkError(error: Error): string {
 }
 
 // Graceful image fallback
+interface ImageWithFallbackProps {
+  src: string
+  alt: string
+  fallbackSrc?: string
+  className?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any
+}
+
 export function ImageWithFallback({
   src,
   alt,
   fallbackSrc,
   className,
   ...props
-}: {
-  src: string
-  alt: string
-  fallbackSrc?: string
-  className?: string
-  [key: string]: any
-}) {
+}: ImageWithFallbackProps) {
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement
     if (fallbackSrc && target.src !== fallbackSrc) {
@@ -148,6 +151,7 @@ export function ImageWithFallback({
   }
 
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={alt}

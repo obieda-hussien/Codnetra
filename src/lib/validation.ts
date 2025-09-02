@@ -33,15 +33,18 @@ export const projectRequestSchema = z.object({
   name: z.string().min(2, 'الاسم مطلوب'),
   email: z.string().email('البريد الإلكتروني غير صحيح'),
   company: z.string().optional(),
-  projectType: z.enum(['web', 'mobile', 'desktop', 'other'], {
-    errorMap: () => ({ message: 'نوع المشروع مطلوب' })
-  }),
-  budget: z.enum(['small', 'medium', 'large', 'enterprise'], {
-    errorMap: () => ({ message: 'الميزانية مطلوبة' })
-  }),
-  timeline: z.enum(['urgent', 'normal', 'flexible'], {
-    errorMap: () => ({ message: 'الجدول الزمني مطلوب' })
-  }),
+  projectType: z.enum(['web', 'mobile', 'desktop', 'other']).refine(
+    (val) => ['web', 'mobile', 'desktop', 'other'].includes(val),
+    { message: 'نوع المشروع مطلوب' }
+  ),
+  budget: z.enum(['small', 'medium', 'large', 'enterprise']).refine(
+    (val) => ['small', 'medium', 'large', 'enterprise'].includes(val),
+    { message: 'الميزانية مطلوبة' }
+  ),
+  timeline: z.enum(['urgent', 'normal', 'flexible']).refine(
+    (val) => ['urgent', 'normal', 'flexible'].includes(val),
+    { message: 'الجدول الزمني مطلوب' }
+  ),
   description: z.string().min(20, 'وصف المشروع يجب أن يكون مفصلاً أكثر'),
 })
 
