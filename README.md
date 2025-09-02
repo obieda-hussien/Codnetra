@@ -1,4 +1,4 @@
-# Codenetra - Modern Arabic Tech Company Website
+# CodNytra - Modern Arabic Tech Company Website
 
 A beautiful, modern website for Codenetra technology company featuring Arabic RTL design, dark mode support, and cutting-edge animations built with Next.js 15.
 
