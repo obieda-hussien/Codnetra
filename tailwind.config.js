@@ -38,15 +38,14 @@ module.exports = {
           800: '#065f46',
           900: '#064e3b',
         },
-        dark: {
-          background: '#0a0a0f',
-          surface: '#16213e', 
-          text: '#e5e7eb',
-          secondary: '#94a3b8',
+        dark: { // ألوان الوضع الليلي
+          background: '#0f172a',
+          surface: '#1e293b',
+          text: '#f1f5f9',
         },
         // ===== أضف ألوان الـ Card والـ Gradient الجديدة =====
         card: {
-          primary: 'rgba(29, 41, 59, 0.7)', // تعديل بسيط ليتناسب مع الثيم
+          primary: 'rgba(30, 41, 59, 0.7)', // تعديل ليتناسب مع surface الجديد
           border: 'rgba(59, 130, 246, 0.3)', // استخدام لون primary كحدود
         },
         gradient: { // ألوان متدرجة جديدة لاستخدامها في الخلفية
@@ -55,11 +54,11 @@ module.exports = {
         },
         // Keep existing for compatibility
         background: {
-          DEFAULT: '#0a0a0f',
-          surface: '#16213e',
+          DEFAULT: '#0f172a',
+          surface: '#1e293b',
         },
         text: {
-          primary: '#e5e7eb',
+          primary: '#f1f5f9',
           secondary: '#94a3b8',
           accent: '#00ff88',
         },
