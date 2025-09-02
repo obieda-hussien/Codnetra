@@ -4,12 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { NAVIGATION_LINKS } from '../../constants';
 import Button from '../ui/Button';
+import { useScrollTo } from '../../hooks/useScrollTo';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const scrollTo = useScrollTo();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavClick = (href: string) => {
+    scrollTo(href);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -31,16 +38,16 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 space-x-reverse">
             {NAVIGATION_LINKS.map((link, index) => (
-              <motion.a
+              <motion.button
                 key={link.name}
-                href={link.href}
+                onClick={() => handleNavClick(link.href)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-text-secondary hover:text-text-accent transition-colors duration-200"
               >
                 {link.name}
-              </motion.a>
+              </motion.button>
             ))}
           </nav>
 
@@ -81,14 +88,13 @@ const Header: React.FC = () => {
           >
             <nav className="py-4 space-y-2">
               {NAVIGATION_LINKS.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
-                  className="block px-4 py-2 text-text-secondary hover:text-text-accent hover:bg-card-background rounded-lg transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavClick(link.href)}
+                  className="block w-full text-right px-4 py-2 text-text-secondary hover:text-text-accent hover:bg-card-background rounded-lg transition-colors"
                 >
                   {link.name}
-                </a>
+                </button>
               ))}
               <div className="px-4 pt-4">
                 <Button variant="primary" size="sm" className="w-full">

@@ -2,11 +2,11 @@ import { faCode, faLaptopCode, faMobile, faRocket } from '@fortawesome/free-soli
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export const NAVIGATION_LINKS = [
-  { name: 'الرئيسية', href: '#home' },
-  { name: 'خدماتنا', href: '#services' },
-  { name: 'أعمالنا', href: '#portfolio' },
-  { name: 'المدونة', href: '#blog' },
-  { name: 'اتصل بنا', href: '#contact' },
+  { name: 'الرئيسية', href: 'hero' },
+  { name: 'خدماتنا', href: 'services' },
+  { name: 'أعمالنا', href: 'portfolio' },
+  { name: 'المدونة', href: 'blog' },
+  { name: 'اتصل بنا', href: 'contact' },
 ];
 
 export const SERVICES = [
