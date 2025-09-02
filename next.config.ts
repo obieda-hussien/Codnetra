@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
   // Remove powered by header for security
   poweredByHeader: false,
   
-  // Enable source maps for debugging
+  // Enable source maps for debugging in all environments
+  // This ensures that JavaScript source maps are generated for production builds
+  // helping developers debug minified code in browser dev tools
   productionBrowserSourceMaps: true,
   
   // Configure for GitHub Pages deployment
