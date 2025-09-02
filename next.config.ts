@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   // Remove powered by header for security
   poweredByHeader: false,
   
+  // Enable source maps for debugging
+  productionBrowserSourceMaps: true,
+  
   // Configure for GitHub Pages deployment
   output: 'export',
   trailingSlash: true,
