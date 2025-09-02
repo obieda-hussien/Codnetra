@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "../lib/fonts";
-import AnimatedBackground from "../components/layout/AnimatedBackground";
+import AnimatedGradientBackground from "../components/layout/AnimatedGradientBackground";
 import "./globals.css";
 
 // Import FontAwesome icons configuration
@@ -36,9 +36,9 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-dark-background text-dark-text`}
       >
-        <AnimatedBackground />
+        <AnimatedGradientBackground />
         {children}
       </body>
     </html>
